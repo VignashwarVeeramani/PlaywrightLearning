@@ -18,6 +18,7 @@ public class LaunchBrowser {
         page.navigate("https://staging-www.forevernew.com.au/georgia-petite-high-waist-pants-257760?colour=black");
         System.out.println(page.title());
         page.close();
+        browser.close();
 
         //Test case 2 - With head mode
         System.out.println("----------Test case 2 - With head mode-------------- ");
@@ -27,6 +28,7 @@ public class LaunchBrowser {
         Thread.sleep(2000); //never use - learning purpose only
         System.out.println(page1.title());
         page1.close();
+        browser1.close();
 
         //Test case 3 - Maximise the window
         System.out.println("----------Test case 3 - Maximise the window-------------- ");
@@ -44,6 +46,7 @@ public class LaunchBrowser {
         Thread.sleep(2000); //never use - learning purpose only
         System.out.println(page2.title());
         page2.close();
+        browserContext.close();
 
         //Test case 4 - Maximize window size by passing arguments - easy method
 
@@ -60,6 +63,8 @@ public class LaunchBrowser {
         page3.navigate("http://way2automation.com");
         System.out.println(page3.title());
         page3.close();
+        browserContext1.close();
+
         playwright.close(); //close websocket session
     }
 }
