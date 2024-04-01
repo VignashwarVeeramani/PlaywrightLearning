@@ -3,6 +3,7 @@ package testcases;
 import com.microsoft.playwright.*;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 public class LaunchBrowser {
     public static void main(String[] args) throws InterruptedException {
@@ -44,6 +45,21 @@ public class LaunchBrowser {
         System.out.println(page2.title());
         page2.close();
 
+        //Test case 4 - Maximize window size by passing arguments - easy method
+
+        System.out.println("----------Test case 4 - Maximize window size by passing arguments - easy method-------------- ");
+        ArrayList<String> arguments = new ArrayList<>();
+        arguments.add("--start-maximized");
+
+        //launch edge browser in an easy way
+        Browser browser3 = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("msedge").setHeadless(false).setArgs(arguments));
+        BrowserContext browserContext1 = browser3.newContext(new Browser.NewContextOptions().setViewportSize(null));
+
+        Page page3 = browserContext1.newPage();
+
+        page3.navigate("http://way2automation.com");
+        System.out.println(page3.title());
+        page3.close();
         playwright.close(); //close websocket session
     }
 }
